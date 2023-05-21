@@ -14,12 +14,18 @@ def user_page(request , pk):
     context = {'user': user}
     return render(request , 'profile.html', context)
 
+def account_page(request):
+    user = request.user
+    context = {'user':user }
+    return render(request, 'account.html', context )
 
 def events_page(request , pk):
     event = Events.objects.get(id = pk)
     context = {'event':event}
     return render(request, 'events.html', context)
 
+# git init , then git remote add origin and git pull origin master 
+# git add .,  git commit -m <message>  then git pull origin master
 
 def registration_confirm(request,pk):
     event = Events.objects.get(id =pk)

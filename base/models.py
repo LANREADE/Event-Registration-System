@@ -18,7 +18,7 @@ class User(AbstractUser):
 class Events(models.Model):
     name = models.CharField(max_length=200) # datasets for names in the events 
     description = models.TextField(null= True, blank = True ) # datasets for the description in the events 
-    participants = models.ManyToManyField(User , blank= True) # dataset for viewing the description inthe events 
+    participants = models.ManyToManyField(User , blank= True, related_name= "events") # dataset for viewing the description inthe events 
     created = models.DateTimeField(auto_now_add=True) #for adding time stamps
     date = models.DateTimeField() # for viewing the time the user created the events
     updated = models.DateTimeField(auto_now =True) # for viewing the updated 

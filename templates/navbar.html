@@ -1,3 +1,15 @@
 <nav>
     <a href = "{% url 'home' %}">Home </a>
-</nav>
+
+    {% if request.user.is_authenticated %}
+        <a href = "{% url 'account' %}">Account</a>
+
+        
+        <a href = "#">Logout</a>
+    {% else %}
+    <a href = "#">Login</a>
+
+    {% endif %}
+
+
+</nav> 

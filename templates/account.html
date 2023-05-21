@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h1>My account </h1>
+
+    <div>
+        {% for event in user.events.all  %}
+            <p>{{ event.name }}</p>
+        {% endfor %}
+    </div>
+{% endblock content  %}
