@@ -3,10 +3,11 @@
 {% block content %}
 <h1>{{ event.name}}</h1>
 
+
 <a href ="{% url 'registration-confirmation'  event.id %}"> Register for a particular Event </a>
 
+<a href = "{% url 'project-submision' event.id  %}">Submit  Project Codes </a>
 <p1>{{ event.description }}</p>
-
 
 <div>
     <h3>Event Participants </h3>

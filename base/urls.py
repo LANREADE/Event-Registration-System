@@ -6,5 +6,6 @@ urlpatterns = [
     path('user/<str:pk>/', views.user_page , name= "profile"),
     path('event/<str:pk>/' , views.events_page , name = "event"),
     path('registration-confirmation/<str:pk>/', views.registration_confirm, name = "registration-confirmation"),
-    path('account/' , views.account_page, name = "account")
+    path('account/' , views.account_page, name = "account"),
+    path('project_submission/<str:pk>', views.project_submission, name ='project-submision')
 ]
