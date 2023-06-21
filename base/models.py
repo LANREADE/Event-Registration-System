@@ -27,7 +27,7 @@ class Events(models.Model):
         return self.name # returning the string name of the events 
     
 class submission(models.Model):
-    participants = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True) #datasets for patitcipants to submit the event registered 
+    participants = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True , related_name = "submissions") #datasets for patitcipants to submit the event registered 
     event = models.ForeignKey(Events,  on_delete= models.CASCADE)# to know the events you are submitting 
     details  = models.TextField(null= True , blank = True)# the details about the user for the submission
 

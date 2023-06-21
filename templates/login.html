@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% if page == 'register' %}
+<h1> Register </h1>
+{% else %}
+<h1> login User </h1>
+<form method ="POST"   action ="{% url 'login'%} "> 
+    {% csrf_token %}
+    {% comment %} <div>
+        <label> User: </label>
+        <input type= "text" name = "username"/>
+    </div> {% endcomment %}
+
+    <div>
+        <label> Email: </label>
+        <input type= "email" name = "email"/>
+    </div>
+    <div>
+        <label> Password </label>
+        <input type= "Password" name = "password"/>
+    </div>
+    <div>
+        <input type="submit"  value= 'login'/>
+    </div>
+</form>
+{% endif %}
+
+{% endblock content  %}

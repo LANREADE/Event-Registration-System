@@ -4,10 +4,23 @@
 <h1>{{ event.name}}</h1>
 
 
-<a href ="{% url 'registration-confirmation'  event.id %}"> Register for a particular Event </a>
+{% if registered %}  
+<p1>You have already registered for the event</p1>
+{% else %}
 
+<a  href ="{% url 'registration-confirmation'  event.id %}"> Register for a particular Event </a>
+{% endif %} 
+
+{% if submitted  %}  
+<p1>You have already submit your project for the event </p1>
+
+{% else %}
 <a href = "{% url 'project-submision' event.id  %}">Submit  Project Codes </a>
-<p1>{{ event.description }}</p>
+
+{% endif %} 
+
+<p>{{ event.description }}</p>
+
 
 <div>
     <h3>Event Participants </h3>
