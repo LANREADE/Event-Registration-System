@@ -20,13 +20,15 @@ class Events(models.Model):
     description = models.TextField(null= True, blank = True ) # datasets for the description in the events 
     participants = models.ManyToManyField(User , blank= True, related_name= "events") # dataset for viewing the description inthe events 
     created = models.DateTimeField(auto_now_add=True) #for adding time stamps
-    date = models.DateTimeField() # for viewing the time the user created the events
+    start_date = models.DateTimeField(null =True) # for viewing the time the user created the events
+    end_date = models.DateTimeField(null=True)
+    registration_deadline = models.DateTimeField(null=True)
     updated = models.DateTimeField(auto_now =True) # for viewing the updated 
 
     def __str__(self):
         return self.name # returning the string name of the events 
     
-class submission(models.Model):
+class Submission(models.Model):
     participants = models.ForeignKey(User, on_delete=models.SET_NULL ,null=True , related_name = "submissions") #datasets for patitcipants to submit the event registered 
     event = models.ForeignKey(Events,  on_delete= models.CASCADE)# to know the events you are submitting 
     details  = models.TextField(null= True , blank = True)# the details about the user for the submission
